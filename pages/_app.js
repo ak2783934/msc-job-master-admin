@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+
+import { ProtectRoute } from "../contexts/auth";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    // <ProtectRoute>
+    <Component {...pageProps} />
+    // </ProtectRoute>
+  );
 }
 
-export default MyApp
+export default MyApp;
