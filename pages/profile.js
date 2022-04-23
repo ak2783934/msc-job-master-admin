@@ -5,7 +5,7 @@ import Layout from "../layout";
 import Router, { useRouter } from "next/router";
 import { isAuthenticated, signin } from "../contexts/auth";
 
-const profile = () => {
+const Profile = () => {
   const Router = useRouter();
   useEffect(() => {
     const isAuthenticate = isAuthenticated();
@@ -73,4 +73,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

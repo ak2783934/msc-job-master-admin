@@ -220,7 +220,12 @@ const JobPreview = () => {
               </div>
             )}
             {jobApplications.map((jobApplication, index) => {
-              return <ApplicationPreview jobApplication={jobApplication} />;
+              return (
+                <ApplicationPreview
+                  jobApplication={jobApplication}
+                  key={index}
+                />
+              );
             })}
           </div>
         </div>

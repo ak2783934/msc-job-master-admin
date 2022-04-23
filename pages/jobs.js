@@ -3,7 +3,7 @@ import Layout from "../layout";
 import Head from "next/head";
 import Link from "next/link";
 import Cookies from "js-cookie";
-import Router, { useRouter } from "next/router";
+import Router from "next/router";
 import { isAuthenticated } from "../contexts/auth";
 import { api } from "./api";
 import ReactLoading from "react-loading";
@@ -30,8 +30,7 @@ const IndividualJob = (job) => {
   );
 };
 
-const jobs = () => {
-  const Router = useRouter();
+const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -119,4 +118,4 @@ const jobs = () => {
   );
 };
 
-export default jobs;
+export default Jobs;
