@@ -138,7 +138,7 @@ const PostJob = () => {
                 value={formik.values.companyName}
               />
               {formik.touched.companyName && formik.errors.companyName ? (
-                <div>{formik.errors.companyName}</div>
+                <div className="text-red-700">{formik.errors.companyName}</div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
@@ -154,7 +154,7 @@ const PostJob = () => {
                 value={formik.values.jobRole}
               />
               {formik.touched.jobRole && formik.errors.jobRole ? (
-                <div>{formik.errors.jobRole}</div>
+                <div className="text-red-700">{formik.errors.jobRole}</div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
@@ -170,7 +170,7 @@ const PostJob = () => {
                 value={formik.values.workExp}
               />
               {formik.touched.workExp && formik.errors.workExp ? (
-                <div>{formik.errors.workExp}</div>
+                <div className="text-red-700">{formik.errors.workExp}</div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
@@ -246,7 +246,7 @@ const PostJob = () => {
                 value={formik.values.workLoc}
               />
               {formik.touched.workLoc && formik.errors.workLoc ? (
-                <div>{formik.errors.workLoc}</div>
+                <div className="text-red-700">{formik.errors.workLoc}</div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
@@ -257,7 +257,7 @@ const PostJob = () => {
                 name="lastDateOfApplication"
                 id="lastDateOfApplication"
                 type="date"
-                placeholder="Work Location"
+                placeholder="Last date of application"
                 className="w-full h-8 p-3 my-1 text-sm border border-black rounded"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -265,7 +265,9 @@ const PostJob = () => {
               />
               {formik.touched.lastDateOfApplication &&
               formik.errors.lastDateOfApplication ? (
-                <div>{formik.errors.lastDateOfApplication}</div>
+                <div className="text-red-700">
+                  {formik.errors.lastDateOfApplication}
+                </div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
@@ -274,14 +276,14 @@ const PostJob = () => {
                 name="noOfOpenings"
                 id="noOfOpenings"
                 type="number"
-                placeholder="Work Location"
+                placeholder="No of openings"
                 className="w-full h-8 p-3 my-1 text-sm border border-black rounded"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.noOfOpenings}
               />
               {formik.touched.noOfOpenings && formik.errors.noOfOpenings ? (
-                <div>{formik.errors.noOfOpenings}</div>
+                <div className="text-red-700">{formik.errors.noOfOpenings}</div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
@@ -297,7 +299,9 @@ const PostJob = () => {
                 value={formik.values.jobDescription}
               />
               {formik.touched.jobDescription && formik.errors.jobDescription ? (
-                <div>{formik.errors.jobDescription}</div>
+                <div className="text-red-700">
+                  {formik.errors.jobDescription}
+                </div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
@@ -314,7 +318,9 @@ const PostJob = () => {
               />
               {formik.touched.additionalNotes &&
               formik.errors.additionalNotes ? (
-                <div>{formik.errors.additionalNotes}</div>
+                <div className="text-red-700">
+                  {formik.errors.additionalNotes}
+                </div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
@@ -332,7 +338,7 @@ const PostJob = () => {
                 onBlur={formik.handleBlur}
               />
               {formik.touched.attachments && formik.errors.attachments ? (
-                <div>{formik.errors.attachments}</div>
+                <div className="text-red-700">{formik.errors.attachments}</div>
               ) : null}
             </div>
             <div className="px-4 py-1 mx-auto">
