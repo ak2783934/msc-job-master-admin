@@ -219,17 +219,20 @@ const PostJob = () => {
                 >
                   Select a job type
                 </option>
-                <option value="state government" label="state government">
+                <option value="State Government" label="State Government">
                   State Government
                 </option>
-                <option value="central government" label="central government">
+                <option value="Central Government" label="Central Government">
                   Central Government
                 </option>
-                <option value="teaching job" label="teaching job">
-                  Teaching job
+                <option value="Teaching jobs" label="Teaching jobs">
+                  Teaching jobs
                 </option>
-                <option value="non-teaching job" label="non-teaching job">
-                  Non-teaching job
+                <option value="Home Tutor jobs" label="Home Tutor jobs">
+                  Home Tutor jobs
+                </option>
+                <option value="Other jobs" label="Other jobs">
+                  Other jobs
                 </option>
               </select>
             </div>
