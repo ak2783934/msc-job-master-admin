@@ -53,6 +53,11 @@ const Profile = () => {
                 JOB APPLICATION
               </div>
             </Link>
+            <Link href="/updatefrontmsg">
+              <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
+                UPDATE FRONT MESSAGE
+              </div>
+            </Link>
 
             <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
               E-MAIL REQUEST
