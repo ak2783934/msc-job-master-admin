@@ -58,18 +58,21 @@ const Profile = () => {
                 UPDATE FRONT MESSAGE
               </div>
             </Link>
-
-            <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
-              E-MAIL REQUEST
-            </div>
+            <Link href="/uploadedresume">
+              <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
+                UPLOADED RESUMES
+              </div>
+            </Link>
+            <Link href="/emailrequest">
+              <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
+                E-MAIL REQUEST
+              </div>
+            </Link>
             <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
               CAREER TIPS
             </div>
             <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
               PREMIUM SERVICE REQUEST
-            </div>
-            <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
-              EMPLOYER
             </div>
           </div>
         </div>
