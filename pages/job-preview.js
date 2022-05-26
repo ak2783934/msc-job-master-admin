@@ -8,15 +8,46 @@ import { api } from "./api";
 import Cookies from "js-cookie";
 import ReactLoading from "react-loading";
 
-const ApplicationPreview = (jobApplication) => {
-  const {
-    nameOfCandidate,
-    contactNo,
-    gender,
-    emailId,
-    resume,
-    status,
-  } = jobApplication.jobApplication;
+const ApplicationPreview = ({ jobApplication }) => {
+  const [currJobApplication, setCurrJobApplication] = useState(jobApplication);
+  const handleOnChange = async (event) => {
+    var tempJobApplication = jobApplication;
+    tempJobApplication.status = event.target.value;
+    const token = Cookies.get("token");
+    const userId = Cookies.get("userId");
+    await api
+      .put(
+        `/jobapplication/${jobApplication._id}/${userId}`,
+        tempJobApplication,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setCurrJobApplication({
+          ...currJobApplication,
+          status: tempJobApplication.status,
+        });
+        alert("application updated");
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+      });
+  };
   return (
     <div className="bg-[#B6B3B3] my-3 p-2 py-3 font-semibold rounded">
       <div className="flex flex-row">
@@ -28,11 +59,13 @@ const ApplicationPreview = (jobApplication) => {
           <div>Resume : </div>
         </div>
         <div className="grow">
-          <div>{nameOfCandidate}</div>
-          <div>{contactNo}</div>
-          <div>{gender}</div>
-          <div>{emailId}</div>
-          <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/fileinfo/${resume}`}>
+          <div>{currJobApplication.nameOfCandidate}</div>
+          <div>{currJobApplication.contactNo}</div>
+          <div>{currJobApplication.gender}</div>
+          <div>{currJobApplication.emailId}</div>
+          <Link
+            href={`${process.env.NEXT_PUBLIC_BASE_URL}/fileinfo/${currJobApplication.resume}`}
+          >
             Download
           </Link>
         </div>
@@ -43,7 +76,8 @@ const ApplicationPreview = (jobApplication) => {
           id="applicationStage"
           className="px-1 py-1 mx-auto rounded"
           name="applicationStage"
-          value={status}
+          value={currJobApplication.status}
+          onChange={handleOnChange}
         >
           <option value="Fresh Application">Fresh Application</option>
           <option value="Under Consideration">Under Consideration</option>
