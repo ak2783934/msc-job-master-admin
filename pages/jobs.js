@@ -49,7 +49,6 @@ const Jobs = () => {
         },
       })
       .then((response) => {
-        // console.log(response);
         setJobs(response.data);
         setLoading(false);
       })
