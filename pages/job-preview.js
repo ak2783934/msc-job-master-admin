@@ -219,18 +219,20 @@ const JobPreview = () => {
               <span className="font-bold">Additional Notes: </span>
               {additionalNotes}
             </div>
-            <div className="py-1">
-              <span className="font-bold">Attachments:</span>{" "}
-              <Link
-                href={`${process.env.NEXT_PUBLIC_BASE_URL}/fileinfo/${attachments}`}
-              >
-                <img
-                  src="/anchor-icon.svg"
-                  alt="anchor"
-                  className="inline w-4 h-4 mx-1 cursor-pointer"
-                />
-              </Link>
-            </div>
+            {attachments && (
+              <div className="py-1">
+                <span className="font-bold">Attachments:</span>{" "}
+                <Link
+                  href={`${process.env.NEXT_PUBLIC_BASE_URL}/fileinfo/${attachments}`}
+                >
+                  <img
+                    src="/anchor-icon.svg"
+                    alt="anchor"
+                    className="inline w-4 h-4 mx-1 cursor-pointer"
+                  />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 

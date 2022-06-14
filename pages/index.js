@@ -41,6 +41,8 @@ export default function Home() {
         console.log(result);
         if (result.token) {
           openModal();
+        } else if (result.error) {
+          alert(result.error);
         } else {
           alert("Wrong id and password");
         }

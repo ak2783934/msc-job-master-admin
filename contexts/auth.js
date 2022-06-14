@@ -8,7 +8,7 @@ import Home from "../pages";
 export const getCurrUser = async () => {
   if (isAuthenticated()) {
     const userId = Cookies.get("userId");
-    const token = Cookie.get("token");
+    const token = Cookies.get("token");
     await api.get(`/user/${userId}`, {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -23,10 +23,14 @@ export const signin = async (values, callback) => {
     })
     .then((response) => {
       console.log(response);
-      console.log("Got token");
-      Cookies.set("token", response.data.token, { expires: 60 });
-      Cookies.set("userId", response.data.user._id);
-      callback(response.data);
+      if (response.data.user.role === 1) {
+        Cookies.set("token", response.data.token, { expires: 60 });
+        Cookies.set("userId", response.data.user._id);
+        console.log("Got token");
+        callback(response.data);
+      } else {
+        callback({ error: "You are not authorized to access" });
+      }
       // return response.data;
     })
     .catch((error) => {
