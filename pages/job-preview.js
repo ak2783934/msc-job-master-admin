@@ -135,6 +135,40 @@ const JobPreview = () => {
       });
   }, []);
 
+  const deleteJob = (event) => {
+    event.preventDefault();
+
+    const token = Cookies.get("token");
+    const userId = Cookies.get("userId");
+
+    api
+      .delete(`/job/${jobData._id}/${userId}`, {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        //routing thing here
+        console.log(response);
+        alert("Job deleted");
+        Router.push("/jobs");
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+      });
+  };
+
   const {
     _id,
     companyName,
@@ -181,12 +215,12 @@ const JobPreview = () => {
           </div>
           <div className="text-xl text-center">{companyName}</div>
           <div className="flex flex-row justify-between mx-4">
-            <div className="px-5 py-auto bg-[#02BEFA] rounded-xl">
+            <div className="px-5 bg-gray-300 py-auto rounded-xl disabled">
               <button>Update Job</button>
             </div>
             <div className="text-sm text-gray-700">{jobRole}</div>
             <div className="px-5 py-auto bg-[#02BEFA] rounded-xl">
-              <button>Delete Job</button>
+              <button onClick={deleteJob}>Delete Job</button>
             </div>
           </div>
           <hr className="mx-4 my-2 border-t-2 border-black" />
