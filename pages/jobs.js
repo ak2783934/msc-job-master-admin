@@ -42,14 +42,10 @@ const Jobs = () => {
     const token = Cookies.get("token");
     const userId = Cookies.get("userId");
     api
-      .get(`/jobs/${userId}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(`/jobs`)
       .then((response) => {
-        setJobs(response.data);
+        setJobs(response.data.jobs);
+        console.log(response.data.jobs);
         setLoading(false);
       })
       .catch((error) => {
