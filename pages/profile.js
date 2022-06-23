@@ -68,9 +68,11 @@ const Profile = () => {
                 E-MAIL REQUEST
               </div>
             </Link>
-            <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
-              CAREER TIPS
-            </div>
+            <Link href="/careertips">
+              <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
+                CAREER TIPS
+              </div>
+            </Link>
             <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
               PREMIUM SERVICE REQUEST
             </div>

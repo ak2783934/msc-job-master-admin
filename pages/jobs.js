@@ -39,8 +39,6 @@ const Jobs = () => {
       Router.push("/");
     }
 
-    const token = Cookies.get("token");
-    const userId = Cookies.get("userId");
     api
       .get(`/jobs`)
       .then((response) => {
