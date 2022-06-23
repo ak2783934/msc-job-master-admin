@@ -77,7 +77,6 @@ const CareerTips = () => {
         },
       })
       .then((response) => {
-        alert("response we got");
         console.log(response.data);
         setCareerTips(response.data.careerTips);
         setLoading(false);
