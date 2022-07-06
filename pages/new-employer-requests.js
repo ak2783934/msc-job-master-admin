@@ -135,7 +135,7 @@ const NewEmployerRequest = () => {
             </Link>
           </div>
           <div className="text-xl font-bold text-center text-white">
-            EMAIL REQUEST
+            NEW EMPLOYER REQUESTS
           </div>
         </div>
         <div className="w-[800px] my-6 h-auto mx-auto bg-white px-[30px] py-[30px]">
