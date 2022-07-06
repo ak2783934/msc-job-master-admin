@@ -11,13 +11,50 @@ import Cookies from "js-cookie";
 import ReactLoading from "react-loading";
 
 const IndividualNotice = ({ notice }) => {
+  const token = Cookies.get("token");
+  const userId = Cookies.get("userId");
   return (
-    <div className="px-3 py-2 bg-[#1F5665] my-4">
-      <span className="text-gray-300">{notice.msg}</span>
-      <span className="inline px-1 text-xs text-green-300">
-        {notice.createdAt.slice(0, 10)}
-      </span>
-      <span className="inline text-xs text-red-600">New</span>
+    <div className="px-3 py-2 bg-[#1F5665] my-4 flex flex-row">
+      <div className="w-[95%]">
+        <span className="text-gray-300">{notice.msg}</span>
+        <span className="inline px-1 text-xs text-green-300">
+          {notice.createdAt.slice(0, 10)}
+        </span>
+        <span className="inline text-xs text-red-600">New</span>
+      </div>
+
+      <div
+        className="cursor-pointer w-[5%]"
+        onClick={() => {
+          api
+            .delete(`/notice/delete/${userId}/${notice._id}`, {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            })
+            .then((response) => {
+              // console.log(response);
+              console.log(response);
+              Router.reload(window.location.pathname);
+            })
+            .catch((error) => {
+              if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+              } else if (error.request) {
+                // The request was made but no response was received
+                console.log(error.request);
+              } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+              }
+            });
+        }}
+      >
+        <img className="w-5 h-5" src="/delete-icon.svg" alt="delete-button" />
+      </div>
     </div>
   );
 };
