@@ -20,7 +20,7 @@ const IndividualNotice = ({ notice }) => {
         <span className="inline px-1 text-xs text-green-300">
           {notice.createdAt.slice(0, 10)}
         </span>
-        <span className="inline text-xs text-red-600">New</span>
+        {/* <span className="inline text-xs text-red-600">New</span> */}
       </div>
 
       <div
