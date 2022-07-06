@@ -76,6 +76,11 @@ const Profile = () => {
             <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
               PREMIUM SERVICE REQUEST
             </div>
+            <Link href="/new-employer-requests">
+              <div className="bg-[#C4C4C4] rounded-xl cursor-pointer py-4">
+                NEW EMPLOYER REQUEST
+              </div>
+            </Link>
           </div>
         </div>
       </div>
